@@ -1,6 +1,7 @@
 const RESPONSE_DONE=4;
 const STATUS_OK=200;
 window.onload=getTodoAJAX();
+
 function active_todo(id){
     var xhr=new XMLHttpRequest();
     xhr.open("PUT","/api/todos/"+id,true);
@@ -55,31 +56,29 @@ function delete_todo(id){
 }
 function createTodoElement(id,todo_object){
     var todo_element=document.createElement("div");
-    //var todo_element_t1=document.createElement("text");
+    var todo_element_t1=document.createElement("text");
     var todo_element_b1=document.createElement("button");
     var todo_element_b2=document.createElement("button");
 
-    // var x = document.createElement("INPUT");
-    // x.setAttribute("type", "checkbox");
-    // todo_element.appendChild(x);
+    if(todo_object.status!="DELETED") {
+        var x = document.createElement("INPUT");
+        x.setAttribute("type", "checkbox");
+        if(todo_object.status=="COMPLETE") {
+            x.setAttribute("checked", "TRUE");
+            x.setAttribute("onchange", "active_todo("+id+")");
+        }
+        if(todo_object.status=="ACTIVE") {
+            //x.setAttribute("checked", "FALSE");
+            x.setAttribute("onchange", "complete_todo("+id+")");
+        }
 
-    todo_element.innerText=todo_object.title;
-    todo_element.setAttribute("data_id",id);
-    todo_element.setAttribute("class","todoStatus"+todo_object.status);
-    //todo_element.appendChild(todo_element_t1);
+        todo_element.appendChild(x);
+    }
+    todo_element_t1.innerText=todo_object.title;
+    todo_element_t1.setAttribute("data_id",id);
+    todo_element_t1.setAttribute("class","todoStatus"+todo_object.status);
+    todo_element.appendChild(todo_element_t1);
 
-    if(todo_object.status=="ACTIVE")
-    {
-        todo_element_b1.innerText="Mark as complete";
-        todo_element_b1.setAttribute("onclick","complete_todo("+ id+")");
-        todo_element.appendChild(todo_element_b1);
-    }
-    if(todo_object.status=="COMPLETE")
-    {
-        todo_element_b1.innerText="Mark as active";
-        todo_element_b1.setAttribute("onclick","active_todo("+ id+")");
-        todo_element.appendChild(todo_element_b1);
-    }
     if(todo_object.status!="DELETED")
     {
         todo_element_b2.innerText="DELETE";
