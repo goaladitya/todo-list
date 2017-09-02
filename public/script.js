@@ -83,6 +83,7 @@ function createTodoElement(id,todo_object){
     {
         todo_element_b2.innerText="DELETE";
         todo_element_b2.setAttribute("onclick","delete_todo("+ id+")");
+        todo_element_b2.setAttribute("class","delete_todo_css");
         todo_element.appendChild(todo_element_b2);
     }
     return todo_element;
