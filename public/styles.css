@@ -1,11 +1,37 @@
-div.todoStatusACTIVE{
+text.todoStatusACTIVE{
+    margin-left: 1.5cm;
     color: blue;
 }
-div.todoStatusCOMPLETE{
+text.todoStatusCOMPLETE{
     color: green;
+    margin-left: 1.5cm;
     text-decoration: line-through;
 }
-div.todoStatusDELETED{
+text.todoStatusDELETED{
     color: red;
+    margin-left: 2cm;
     text-decoration: line-through;
+}
+h1.heading1{
+    background-color: #fffacd;
+    text-align: center;
+    margin-top: 0.5cm;
+    height: 80px;
+}
+h3.todo_header{
+    margin-left: 1.5cm;
+}
+hr.horizontal_line{
+    border: solid 1px black;
+    color: black;
+}
+h2.add_todo_css{
+    color:gray;
+    margin-left: 1cm;
+}
+input.new_todo_input_css{
+    margin-left: 1cm;
+}
+button.delete_todo_css{
+    /*float: right;*/
 }
