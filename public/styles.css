@@ -1,22 +1,33 @@
 text.todoStatusACTIVE{
     margin-left: 1.5cm;
+    font-size: larger;
     color: blue;
 }
 text.todoStatusCOMPLETE{
     color: green;
+    font-size: larger;
     margin-left: 1.5cm;
     text-decoration: line-through;
 }
 text.todoStatusDELETED{
     color: red;
+    font-size: larger;
     margin-left: 2cm;
     text-decoration: line-through;
 }
 h1.heading1{
     background-color: #fffacd;
     text-align: center;
-    margin-top: 0.5cm;
-    height: 80px;
+    margin-top: -8px;
+    height: 50px;
+    padding-top: 12px;
+}
+input[type=text]{
+    border: none;
+    border-bottom: 2px solid black;
+    width:250px;
+    font-size: 80%;
+    margin-left: 5%;
 }
 h3.todo_header{
     margin-left: 1.5cm;
@@ -33,5 +44,21 @@ input.new_todo_input_css{
     margin-left: 1cm;
 }
 button.delete_todo_css{
-    /*float: right;*/
+    color: red;
+    border: transparent;
+    float: right;
+    font-size: 12px;
+    margin-top: 8px;
+    margin-right: 60%;
+    background: transparent;
+    /*position: relative;*/
+}
+input.checkbox_x{
+    margin-left: 10%;
+    height: 18px;
+    width: 18px;
+}
+button.hide_buttons{
+    background: transparent;
+    color: blue;
 }
