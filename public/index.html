@@ -7,18 +7,25 @@
 </head>
 <body>
 <h1 class="heading1">My Todos</h1>
+
 <h3 class="todo_header">Active Todos</h3>
 <div id="active_todo_list_div"></div>
 <hr class="horizontal_line">
+
 <h2 class="add_todo_css">Add Todo</h2>
 <input type="text" id="new_todo_input" placeholder="enter new todo here" class="new_todo_input_css"/>
 <input type="button" value="ADD" onclick="addTodoAJAX()"/>
 <hr class="horizontal_line">
+
 <h3 class="todo_header">Completed Todos</h3>
+<!--<input class="hide_buttons" type="button" value="hide completed todos" onclick="getTodoAJAX()"/>-->
 <div id="completed_todo_list_div"></div>
 <hr class="horizontal_line">
+
 <h3 class="todo_header">Deleted Todos</h3>
+<!--<input type="button" value="hide deleted todos" class="hide_buttons" onclick="getTodoAJAX()"/>-->
 <div id="deleted_todo_list_div"></div>
+
 <script src="/script.js" type="text/javascript"></script>
 </body>
 </html>
