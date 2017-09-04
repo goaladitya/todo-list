@@ -1,7 +1,17 @@
 const RESPONSE_DONE=4;
 const STATUS_OK=200;
 window.onload=getTodoAJAX();
-
+// var hide_completed_var=0;
+// var hide_deleted_var=0;
+//
+//
+// function hide_completed()
+// {
+//     if(hide_completed_var==1)
+//     {
+//
+//     }
+// }
 function active_todo(id){
     var xhr=new XMLHttpRequest();
     xhr.open("PUT","/api/todos/"+id,true);
@@ -63,6 +73,7 @@ function createTodoElement(id,todo_object){
     if(todo_object.status!="DELETED") {
         var x = document.createElement("INPUT");
         x.setAttribute("type", "checkbox");
+        x.setAttribute("class","checkbox_x")
         if(todo_object.status=="COMPLETE") {
             x.setAttribute("checked", "TRUE");
             x.setAttribute("onchange", "active_todo("+id+")");
@@ -81,7 +92,7 @@ function createTodoElement(id,todo_object){
 
     if(todo_object.status!="DELETED")
     {
-        todo_element_b2.innerText="DELETE";
+        todo_element_b2.innerText="X";
         todo_element_b2.setAttribute("onclick","delete_todo("+ id+")");
         todo_element_b2.setAttribute("class","delete_todo_css");
         todo_element.appendChild(todo_element_b2);
@@ -120,6 +131,9 @@ function getTodoAJAX()
 {
     var xhr=new XMLHttpRequest();
     xhr.open("GET","/api/todos",true);
+    xhr.send(data=null);
+    //for(var i=0;i<100000;i++){}
+    // addTodoElements("active_todo_list_div","completed_todo_list_div","deleted_todo_list_div",xhr.responseText);
     xhr.onreadystatechange=function(){
         //code tht will be excuted after res HAS responsce recieved
         if(xhr.readyState==RESPONSE_DONE){
@@ -129,7 +143,7 @@ function getTodoAJAX()
             }
         }
     }//callback end
-    xhr.send(data=null);
+
 }
 
 function addTodoAJAX(){
